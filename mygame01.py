@@ -133,23 +133,23 @@ while True and move != ["q"]:
       print('Can\'t get ' + move[1] + '!')
 
   ## Define how a player can win
-  if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
+if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
     print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
     break
   
-  if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "sword" in inventory and "cookie" not in inventory:
+if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "sword" in inventory and "cookie" not in inventory:
     print("You swing your rusty sword!... and it breaks in half. The monster gobbles you up anyway. GAME OVER!")
     break
 
-  if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "sword" in inventory and "cookie" in inventory:
+if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "sword" in inventory and "cookie" in inventory:
     print("You swing your rusty sword!... and it breaks in half. The monster is about to eat you when it sees the cookie in your pocket. It eats the cookie instead and runs away!")
     del rooms["Kitchen"]["item"]
 
-  if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "cookie" in inventory:
+if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and "cookie" in inventory:
     print("The monster is about to eat you when it sees the cookie in your pocket. It eats the cookie instead and runs away!")
     del rooms["Kitchen"]["item"]
 
   ## If a player enters a room with a monster
-  if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
+if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
     print('A monster has got you... GAME OVER!')
     break

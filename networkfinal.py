@@ -47,8 +47,8 @@ if len(sys.argv) > 1: #checks if there is a username and host on file len>1
         username, hostname = hostname.split("@") #will split into user name and host name
 else:
     hostname = input("Hostname: ") # if no hostname then user will input one
-if len(hostname) == 0:
-    print("*** Hostname required.")
+if len(hostname) == 0:  #validates that a hostname is present
+    print("*** Hostname required.") #if no hostname will print this line
     sys.exit(1)
 
 if hostname.find(":") >= 0:

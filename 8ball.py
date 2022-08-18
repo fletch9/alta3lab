@@ -6,4 +6,4 @@ while 1==1:
 
     if not question: 
         break
-    print(random.choice(("It is certain", "Outlook good", "You may rely on it", "Ask again later", "Concentrate and ask again",  "Reply hazy, try again", "My reply is no","My sources say no")),"\n")
+    print(random.choice(("It is certain", "Outlook good", "You may rely on it", "ehh ask again", "Concentrate and ask again",  "Reply hazy, try again sucker", "My reply is no way","My sources say no")),"\n")

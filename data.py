@@ -6,16 +6,17 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def main():
-    df = pd.read_csv("/home/student/mycode/one.csv", index_col=1)
+                                      #filename is one.txt, not one.csv
+    df = pd.read_csv("/home/student/mycode/one.txt", index_col=1)
     df.drop_duplicates(inplace=True)
-    df.drop(df.columns.difference(["trend","season","episode","total_votes"]), 1, inplace=True)
-    sorted_by_name = df.sort_values(["rank"], ascending=True)
+    df.drop(df.columns.difference(["average_rating","name"]), 1, inplace=True)
+    sorted_by_name = df.sort_values(["average_rating"], ascending=False)
     sorted_by_name.set_index("name")
+    
+# indentation problems
+# because lines 17-20 are not indented 4 spaces to the right, they aren't part of the main function, so it has no idea what "sorted_by_name" is
+    print(sorted_by_name.head(10))
 
-print(sorted_by_name.head(10))
-
-sorted_by_name.head(10).plot(kind="name")
-plt.savefig("/home/student/static/sorted.txt", bbox_inches='tight')
 
 if __name__ == "__main__":
 

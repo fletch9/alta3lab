@@ -20,7 +20,7 @@
 
 # based on code provided by raymond mosteller (thanks!)
 
-import base64.  # importing modules for the code
+import base64  #importing modules for the code
 import getpass
 import os
 import socket
@@ -59,16 +59,16 @@ if hostname.find(":") >= 0:
 # get username
 if username == "":
     default_username = getpass.getuser()
-    username = input("Username [%s]: " % default_username)
+    username = input("Username [%s]: " % default_username) #parses username
     if len(username) == 0:
         username = default_username
-if not UseGSSAPI:
-    password = getpass.getpass("Password for %s@%s: " % (username, hostname))
+if not UseGSSAPI:  #generic security service
+    password = getpass.getpass("Password for %s@%s: " % (username, hostname)) #defines how the user and host is formatted
 else:
     password = None
 
 
-# get host key, if we know one
+# get host key, if we know one..... searches both locations for ssh key to known hosts
 hostkeytype = None
 hostkey = None
 try:
@@ -106,11 +106,11 @@ try:
 
     # dirlist on remote host
     dirlist = sftp.listdir(".")
-    print("Dirlist: %s" % dirlist)
+    print("Dirlist: %s" % dirlist) #prints directory list on remote system
 
     # copy this demo onto the server
     try:
-        sftp.mkdir("demo_sftp_folder")
+        sftp.mkdir("demo_sftp_folder") #makes the directory on remote system
     except IOError:
         print("(assuming demo_sftp_folder/ already exists)")
     with sftp.open("demo_sftp_folder/README", "w") as f:
@@ -121,7 +121,7 @@ try:
     print("created demo_sftp_folder/ on the server")
 
     # copy the README back here
-    with sftp.open("demo_sftp_folder/README", "r") as f:
+    with sftp.open("demo_sftp_folder/README", "r") as f: # puts readme file in directory
         data = f.read()
     with open("README_demo_sftp", "w") as f:
         f.write(data)
@@ -134,7 +134,7 @@ try:
     t.close()
 
 except Exception as e:
-    print("*** Caught exception: %s: %s" % (e.__class__, e))
+    print("*** Caught exception: %s: %s" % (e.__class__, e)) #error checking
     traceback.print_exc()
     try:
         t.close()
